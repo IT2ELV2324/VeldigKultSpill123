@@ -33,11 +33,11 @@ while(game):
     #her kan vi ha skille mellom hva som skjer i rommene. Man møter enten en fiende, en quiz, eller en kake mmmmmmm
 
     motstander = fiende.nyFiende(len(romliste)+1)
-    if input("Du møter fiende " +  motstander.navn) == "quit":
+    if input("Du møter fiende " +  motstander.navn + "\n--press enter--") == "quit":
         game = False
     
     while(spiller.hp > 0 and motstander.hp > 0 and game == True):#kamploop
-        print("Du har", spiller.hp, "hp igjen.\n",motstander.navn,"har ",motstander.hp,"igjen. \n")
+        print(f"Du har {spiller.hp} hp igjen.\n{motstander.navn} har {motstander.hp} igjen. \n")
         #turen til spilleren er interaktiv, fiende er generert
         ch = SpillerValg("Hva vil du gjøre?? \n 0. angrip med våpenet ditt \n 1. angrip deg selv med våpenet ditt \n 2. bruk et objekt fra ditt inventar \nskriv alternativ> ", 3)
         if ch == 0:
@@ -65,19 +65,18 @@ while(game):
                 print(f"{i}. " + spiller.ting[i])
             tingvalg = SpillerValg("\nHvilket objekt vil du bruke?> ", len(spiller.ting))
             if tingvalg == -1:
-                print("\nDu stor der veldig kleint og gjorde ingenting.\n")
+                print("\nDu stor der veldig kleint og gjorde ingenting.")
             elif tingvalg >= 0:
                 #her bruker man en item
-                print("du brukte",spiller.ting[tingvalg])
+                print("du brukte",spiller.ting[tingvalg],"\n")
                 spiller.ting.remove(spiller.ting[tingvalg])
             
-
-        if spiller.hp <= 0:#spiller død
-            print("\nDu er  er død :(\n")
-            game = False
         if motstander.hp > 0 and spiller.hp > 0:#motstander angrep
             print(f'{motstander.navn} angriper med våpenet sitt og gjør {motstander.damage} skade!')
             spiller.damage(motstander.damage)
+        if spiller.hp <= 0:#spiller død
+            print("\nDu er  er død :(")
+            game = False
 
         input("\n--press enter to continieute--\n")#pause
 

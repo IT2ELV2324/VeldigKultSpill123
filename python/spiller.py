@@ -5,7 +5,7 @@ class spiller:
         self.hp = self.maxhp
         self.weapon = weapon
         self.armor = armor
-        self.ting = ting
+        self.ting = ["såpe", "såpe 2", ""]
     
     def damage(self, dmg):#funksjon for spillerskade
         self.hp = self.hp - dmg

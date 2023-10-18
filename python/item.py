@@ -52,7 +52,7 @@ def generateArmor(name="", description="", defense=0, ilvl=0):
     defense = defense or 3 * ilvl
     return Armor(name, description, defense, ilvl)
 
-weaponNamesPrefix = ["Sword", "Axe", "Mace", "Spear", "Bow"]
+weaponNamesPrefix = ["Sword", "Axe", "Mace", "Spear", "Bow", "Banana", "Mean words"]
 weaponNamesSuffix = ["of the Monkey", "of the Tiger", "of the Bear", "of the Wolf", "of the Eagle"]
 
 armorNamesPrefix = ["Hjelm", "Brystplate", "Bukse", "Sko"]
